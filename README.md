@@ -25,5 +25,5 @@
 ![](phone_signin.jpg)  
 
 - Страница добавления слова  
-![](Aphone_addNew.jpg)  
+![](phone_addNew.jpg)  
 
