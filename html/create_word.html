@@ -2,49 +2,70 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/media.css">
+    <link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Indie+Flower&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/create.css">
     <title>MyDictionary</title>
 </head>
 <body>
-<header>
-    <div>
-        <!-- left -->
-        <nav>
-            <a href="#index">MyDictionary</a>
-            <a href="#new">Add New</a>
-        </nav>
-        <!-- right -->
-        <nav>
-            <a href="#login">Login</a>
-            <a href="#register">Register</a>
-        </nav>
-    </div>
-</header>    
-
-<main>
-    <div>
-        <h1>Create word</h1>
-    </div>
-    <div>
-        <form>
-            <label for="word"></label>
-            <input type="text" name="word" id="word">
-            <label for="def"></label>
-            <input type="text" name="def" id="def">
-            <label for="extra"></label>
-            <input type="text" name="extra" id="extra">
-            <label for="source"></label>
-            <input type="text" name="source" id="source">
-            <div>
-                <input type="submit" value="Submit">
+    <div class="wrapper">
+        <header>
+            <div class="header-container">
+                <nav class="left">
+                    <a href="#index" class="label">MyDictionary</a>    
+                    <div class="hide">
+                        <a href="#new">Add New</a>
+                    </div>
+                </nav>
+                <nav class="right">
+                    <div class="hide">
+                        <a href="#login">Login</a>
+                        <a href="#register">Register</a>
+                    </div>
+                    
+                </nav>
+                <nav class="menu-bar right">
+                    <a href="javascript:void(0);" class="menu-bar">
+                        <img src="bars-solid.svg" class="burger" alt="">
+                    </a>
+                </nav>
             </div>
-        </form>
-    </div>
-</main>
+        </header>    
+
+    <main>
+        <div class="content">
+            <div class="h-container">   
+                <div class="h-box">
+                    <h1 class="day">Create word</h1>
+                </div>                         
+            </div>
+            <div class="card">                
+                <div>
+                    <form>
+                        <label for="word">Word</label>
+                        <input type="text" placeholder="Input your word here" name="word" id="word">
+                        <label for="def">Defenition</label>
+                        <input type="text" placeholder="Input your word defenition here" name="def" id="def">
+                        <label for="extra">Extra comments</label>
+                        <textarea name="extra" placeholder="Input your extra comments here" id="extra"></textarea>
+                        <label for="source">Sources</label>
+                        <textarea name="source" placeholder="Input your sources" id="source"></textarea>                       
+                        <input type="submit" value="Create">                                           
+                    </form>
+                </div>
+            </div>  
+        </div>        
+    </main>
 
 <footer>
-    <div>
-        &copy; 2020 - MyDictionary - <a href="#privacy">privacy</a>
+    <div class="footer-container">
+        <p class="copyright">
+            &copy; 2020 - MyDictionary - <a href="#privacy">privacy</a>
+        </p>
     </div>
 </footer>
+</div>
 </body>
 </html>

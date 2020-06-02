@@ -2,114 +2,209 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>MyDictionary</title>
+    <title>My dictionary</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/media.css">
+    <link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Indie+Flower&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/index_media.css">
+    
 </head>
 <body>
-<header>
-    <div>
-        <!-- left -->
-        <nav>
-            <a href="#index">MyDictionary</a>
-            <a href="#new">Add New</a>
-        </nav>
-        <!-- right -->
-        <nav>
-            <a href="#login">Login</a>
-            <a href="#register">Register</a>
-        </nav>
-    </div>
-</header>    
-
-<main>
-    <section>
-        <div>
-            <div>
-                <h1>Word of day</h1>
+    <div class="wrapper">
+        <header>
+            <div class="header-container">
+                <nav class="left">
+                    <a href="#index" class="label">MyDictionary</a>    
+                    <div class="hide">
+                        <a href="#new">Add New</a>
+                    </div>
+                </nav>
+                <nav class="right">
+                    <div class="hide">
+                        <a href="#login">Login</a>
+                        <a href="#register">Register</a>
+                    </div>
+                    
+                </nav>
+                <nav class="menu-bar right">
+                    <a href="javascript:void(0);" class="menu-bar">
+                        <img src="bars-solid.svg" class="burger" alt="">
+                    </a>
+                </nav>
             </div>
-            <div>
-                <div>
-                    <p>May, 2020 from some user</p>
-                </div>
-                <div>
-                    <strong>Def-header</strong>
-                </div>
-                <div>
-                    <p>defenition</p>
-                </div>
-                <div>
-                    <p>commests</p>
-                </div>
-                <div>
+        </header>    
+       
+        <main>
+            <div class="content">
+                <section>
                     <div>
-                        <p>+20</p>
+                        <div class="h-container">   
+                            <div class="h-box">
+                                <h1 class="day">Word of day</h1>
+                            </div>                         
+                        </div>
+                        <div class="card">
+                            <div class="text date">
+                                <p class="text date">May, 2020 from some user</p>
+                            </div>
+                            <div class="text word">
+                                <p class="word">Def-header</p>
+                            </div>
+                            <div class="text def">
+                                <p class="def">defenition</p>
+                            </div>
+                            <div class="text comment"> 
+                                <p class="comment">some text some text some text some text 
+                                    some text some text some text some text some text 
+                                    some text some text some text some text 
+                                    some text some text some text some text some text 
+                                    some text some text some text some text some text 
+                                    some text some text
+                                </p>
+                            </div>
+                            <div class="row">
+                                <div class="rating">
+                                    <p class="rating">+20</p>
+                                </div>
+                                <div>
+                                    <button class="btn vote">
+                                        <img src="thumbs-up-solid.svg" class="btn" alt="">
+                                    </button>
+                                </div>
+                                <div>
+                                    <button class="btn vote">
+                                        <img src="thumbs-down-solid.svg" class="btn" alt="">
+                                    </button>
+                                </div>
+                                <div class="report">
+                                    <button class="btn report">
+                                        report
+                                    </button>
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>                
+                </section>
+                
+                <section>
+                    <div class="h-container">
+                        <div class="h-box">
+                            <div class="sort">
+                                <button class="sort">date</button>
+                                <button class="sort">rating</button>
+                            </div>
+                            <div class="feed">
+                                <h1 class="sort">Word feed</h1>
+                            </div>
+                        </div>
+                        
                     </div>
-                    <div>
-                        <button>
-                            upvote
-                        </button>
-                    </div>
-                    <div>
-                        <button>
-                            downvote
-                        </button>
-                    </div>
-                    <div>
-                        <button>
-                            report
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
+                    <div class="card">
+                        <div class="text date">
+                            <p class="text date">May, 2020 from some user</p>
+                        </div>
+                        <div class="text word">
+                            <p class="word">Def-header</p>
+                        </div>
+                        <div class="text def">
+                            <p class="def">defenition</p>
+                        </div>
+                        <div class="row">
+                            <div class="rating">
+                                <p class="rating">+20</p>
+                            </div>
+                            <div>
+                                <button class="btn vote">
+                                    <img src="thumbs-up-solid.svg" class="btn" alt="">
+                                </button>
+                            </div>
+                            <div>
+                                <button class="btn vote">
+                                    <img src="thumbs-down-solid.svg" class="btn" alt="">
+                                </button>
+                            </div>
+                            <div class="report">
+                                <button class="btn report">
+                                    report
+                                </button>
+                            </div>
+                        </div>
+                    </div>     
+                    <div class="card">
+                        <div class="text date">
+                            <p class="text date">May, 2020 from some user</p>
+                        </div>
+                        <div class="text word">
+                            <p class="word">Def-header</p>
+                        </div>
+                        <div class="text def">
+                            <p class="def">defenition</p>
+                        </div>
+                        <div class="row">
+                            <div class="rating">
+                                <p class="rating">+20</p>
+                            </div>
+                            <div>
+                                <button class="btn vote">
+                                    <img src="thumbs-up-solid.svg" class="btn" alt="">
+                                </button>
+                            </div>
+                            <div>
+                                <button class="btn vote">
+                                    <img src="thumbs-down-solid.svg" class="btn" alt="">
+                                </button>
+                            </div>
+                            <div class="report">
+                                <button class="btn report">
+                                    report
+                                </button>
+                            </div>
+                        </div>
+                    </div>     
+                    <div class="card">
+                        <div class="text date">
+                            <p class="text date">May, 2020 from some user</p>
+                        </div>
+                        <div class="text word">
+                            <p class="word">Def-header</p>
+                        </div>
+                        <div class="text def">
+                            <p class="def">defenition</p>
+                        </div>
+                        <div class="row">
+                            <div class="rating">
+                                <p class="rating">+20</p>
+                            </div>
+                            <div>
+                                <button class="btn vote">
+                                    <img src="thumbs-up-solid.svg" class="btn" alt="">
+                                </button>
+                            </div>
+                            <div>
+                                <button class="btn vote">
+                                    <img src="thumbs-down-solid.svg" class="btn" alt="">
+                                </button>
+                            </div>
+                            <div class="report">
+                                <button class="btn report">
+                                    report
+                                </button>
+                            </div>
+                        </div>
+                    </div>     
+                </section>
+            </div>            
+        </main>
         
-    </section>
-    
-    <section>
-        <div>
-            <div>
-                <button>date</button>
-                <button>rating</button>
+        <footer>
+            <div class="footer-container">
+                <p class="copyright">
+                    &copy; 2020 - MyDictionary - <a href="#privacy">privacy</a>
+                </p>
             </div>
-            <h1>Word feed</h1>
-        </div>
-        <div>
-            <div>
-                <p>May, 2020 from some user</p>
-            </div>
-            <div>
-                <strong>Def-header</strong>
-            </div>
-            <div>
-                <p>defenition</p>
-            </div>
-            <div>
-                <div>
-                    <p>-10</p>
-                </div>
-                <div>
-                    <button>
-                        upvote
-                    </button>
-                </div>
-                <div>
-                    <button>
-                        downvote
-                    </button>
-                </div>
-                <div>
-                    <button>
-                        report
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-</main>
-
-<footer>
-    <div>
-        &copy; 2020 - MyDictionary - <a href="#privacy">privacy</a>
+        </footer>
     </div>
-</footer>
 </body>
 </html>

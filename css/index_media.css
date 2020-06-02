@@ -1,0 +1,71 @@
+@media (max-width: 768px)
+{
+    h1 {
+        font-size: 6vmin;
+    }
+    button.sort {
+        font-size: 4vmin;
+        margin-left: 10px;
+    }
+    div.card  {
+        margin: 0px 5px 10px 5px;
+        padding: 10px;
+    }
+    nav a.label {
+        padding-left: 15px;
+    }
+    button img.btn
+    {
+        width: 4vh;
+        height: 4vh;
+    }
+    div.text {     
+        margin-bottom: 5px;
+    }
+    p.date,
+    p.def,
+    p.comment,
+    p.rating {
+        font-size: 4vmin;
+    }
+    p.word {
+        font-size: 6vmin;
+    }
+}
+@media (min-width: 768px)
+{
+    h1 {
+        font-size: 4vmin;
+    }
+    div.sort { 
+        display: flex;
+        margin-left: 20px;
+        width: 0;
+    }
+    button.sort {
+        font-size: 3vmin;
+        margin-left: 20px;
+    }
+    div.card  {
+        margin: 0px 20px 10px 20px;
+        padding: 10px;
+    }
+    button img.btn
+    {
+        width: 5vh;
+        height: 5vh;
+    }
+    div.text {     
+        margin-bottom: 10px;
+    }
+    p.date,
+    p.def,
+    p.comment,
+    p.rating {
+        font-size: 3vmin;
+    }
+    p.word {
+        font-size: 5vmin;
+    }
+}
+
