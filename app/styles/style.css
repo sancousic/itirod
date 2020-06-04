@@ -50,7 +50,7 @@ nav {
 }
 nav.hide {
     display: none;
-}
+} 
 nav.right {
     margin-left: auto;
     align-self: center;
