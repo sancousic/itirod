@@ -5,16 +5,13 @@ let Register = {
         let view = /*HTML*/`
                     <div class="card">
                         <h1>Sign up</h1>
-                        <div class="form-container">
-                            <form name="sign-up-form">
-                                <input type="text" placeholder="Login" name="login" id="login">
-                                <input type="password" placeholder="Password" name="pswd" id="pswd">
-                                <input type="password" placeholder="Confiurm password" name="confiurm" id="confiurm">
+                        <div class="login-form-container">
+                            <form class="login-form" name="sign-up-form">
+                                <input type="text" class="login-input" placeholder="Login" name="login" id="login">
+                                <input type="password" class="login-input" placeholder="Password" name="pswd" id="pswd">
+                                <input type="password" class="login-input" placeholder="Confiurm password" name="confiurm" id="confiurm">
                                 <input type="submit" id="btn-submit" value="Sign in">
                             </form>
-                            <div>
-                                <p id="validate"></p>
-                            </div>
                         </div>
                     </div>  
                     `;

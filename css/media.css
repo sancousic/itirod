@@ -1,8 +1,9 @@
 @media (max-width: 768px)
 {
-    .hide {
+    div.hide{
         display: none;
     }    
+    
     div.header-container a.label {
         font-size: 25px;
     }

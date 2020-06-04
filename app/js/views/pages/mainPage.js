@@ -8,10 +8,10 @@ let MainPage = {
                         <div>
                             <div class="h-container">   
                                 <div class="h-box">
-                                    <h1 class="day">Word of day</h1>
+                                    <h1 class="standart">Word of day</h1>
                                 </div>                         
                             </div>
-                            <div class="card" id="day-card">
+                            <div class="index-card" id="day-card">
                                 
                             </div>                        
                         </div>                

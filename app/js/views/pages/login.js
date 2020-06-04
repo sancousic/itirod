@@ -3,12 +3,12 @@ import Router from "../../router.js";
 let Login = {
     render: async() => {
         let view = /*HTML*/`
-                    <div class="card">
-                        <h1>Sign in</h1>
-                        <div class="form-container">
-                            <form name="sign-in-form">
-                                <input type="text" placeholder="Login" name="login" id="login">
-                                <input type="password" placeholder="Password" name="pswd" id="pswd">
+                    <div class="login-card">
+                        <h1 class="login-h1">Sign in</h1>
+                        <div class="login-form-container">
+                            <form name="sign-in-form" class="login-form">
+                                <input type="text" class="login-input" placeholder="Login" name="login" id="login">
+                                <input type="password" class="login-input" placeholder="Password" name="pswd" id="pswd">
                                 <input type="submit" id="btn-submit" value="Sign in">
                             </form>
                         </div>  
