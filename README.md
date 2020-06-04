@@ -4,6 +4,13 @@
 
 ## Тема: 2. Community-driven dictionary
 
+## Ссылки:   
+
+[Главная страница](https://mydictionary-320fb.web.app/)     
+
+[Страница авторизации](https://mydictionary-320fb.web.app/login.html)    
+
+[Страница добавления слова](https://mydictionary-320fb.web.app/create_word.html) 
 
 ### default/browser 1024x768
 
