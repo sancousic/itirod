@@ -28,9 +28,11 @@ export class Router {
         const router = new Router(routes);
         Router._instance = router;
         router._loadInitial();
-        firebase.auth().onAuthStateChanged(function(user) {
-            router.render_header();
+        firebase.auth().onAuthStateChanged(async () => {
+            console.log("IT WORKS!!");            
+            await router.render_header();
         });
+        router.render_header();
         return router;
     }
 
@@ -53,9 +55,6 @@ export class Router {
 
     async loadPage(url){
         const content = null || document.getElementById('main-box');
-        const header = null || document.getElementById('header-id');
-        header.innerHTML = await Header.render();
-        await Header.after_render();
 
         this.currentPage = Error404
         for (const { path, page} of Router._instance.routes) {

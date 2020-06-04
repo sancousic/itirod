@@ -56,11 +56,8 @@ let Header = {
         if(!user) {
             var login_elements = document.getElementsByClassName("sign-in");
             var register_elements = document.getElementsByClassName("sign-up");
-            console.log("here!!!")
-            console.log(login_elements);
             for(let i = 0; i < login_elements.length; i++) {
                 login_elements[i].addEventListener("click", () => {
-                    console.log("click on login");
                     Router._instance.navigate("/login");                   
                 })
             }
@@ -68,7 +65,6 @@ let Header = {
             for(let i = 0; i < register_elements.length; i++) {
                 register_elements[i].addEventListener("click", () => {
                     Router._instance.navigate("/register");
-                    console.log("click on register");
                 })
             }
         }
@@ -95,7 +91,6 @@ let Header = {
         const label = document.getElementById("home-label");
         label.addEventListener("click", () => {
             Router._instance.navigate("/");
-            console.log("click on label");
         });
 
         const burger = document.getElementById("burger");
