@@ -76,6 +76,7 @@ let Header = {
                 logout_elements[i].addEventListener("click", () => {
                     console.log("logout");
                     firebase.auth().signOut().then(() => {
+                        localStorage.removeItem("login");
                         Router._instance.navigate("/");
                     });                    
                 });

@@ -35,6 +35,7 @@ const auth = firebase.auth();
 
 const signIn = (email, password) => {
     auth.signInWithEmailAndPassword(email, password).then(() => {
+        localStorage.setItem("login", email);
         Router._instance.navigate("/");
     })
     .catch(e => {
