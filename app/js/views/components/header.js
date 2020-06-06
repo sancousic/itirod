@@ -3,20 +3,20 @@ import {Router} from "../../router.js"
 let user;
 
 let notAutorized = /*html*/`
-                    <a href="javascript:void(0);" class="sign-in">Sign in</a>
-                    <a href="javascript:void(0);" class="sign-up">Sign up</a>
+                    <button class="ref sign-in">Sign in</button>
+                    <button class="ref sign-up">Sign up</button>
                     `;
 
 let authorized = (userName) => {
     let view = /*html*/`
                 <p id="username" class="username">${userName}</p>
-                <a href="javascript:void(0);" class="sign-out">Log out</a>
+                <button class="ref sign-out">Log out</button>
                 `;
     return view;
 }
 
 let addWord = /*html*/`
-            <a href="javascript:void(0);" class="create-word">Create Word</a>
+            <button class="ref create-word">Create Word</button>
             `;
 
 let Header = {
@@ -28,22 +28,18 @@ let Header = {
         }
         let view = /*HTML*/`
                     <div class="header-container">
-                        <nav class="left">
-                            <a href="javascript:void(0);" class="label" id="home-label">MyDictionary</a>    
-                            <div class="hide">
+                        <nav>                            
+                            <button class="ref label" id="home-label">MyDictionary</button>    
+                            <div class="disappearing">
                                 ${user ? addWord : ``}
-                            </div>
-                        </nav>
-                        <nav class="right">
-                            <div class="hide">
-                                ${user ? autorized_view : notAutorized}
                             </div>                            
-                        </nav>
-                        <nav class="menu-bar right">
-                            <a href="javascript:void(0);" id="burger" class="menu-bar">
-                                <img src="./images/bars-solid.svg" class="burger" alt="">
-                            </a>
-                        </nav>
+                            <div class="right disappearing">                                
+                                ${user ? autorized_view : notAutorized}
+                            </div>
+                        </nav>                        
+                        <div class="menu-bar">                            
+                            <img src="./images/bars-solid.svg" class="burger" id="burger" alt="">                            
+                        </div>
                     </div>
                     <nav class="nav-bot" id="nav-bot">
                         ${user ? autorized_view : notAutorized}

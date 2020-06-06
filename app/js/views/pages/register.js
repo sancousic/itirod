@@ -1,4 +1,5 @@
 import Router from "../../router.js";
+const auth = firebase.auth();
 
 let Register = {
     render: async() => {
@@ -36,8 +37,6 @@ let Register = {
         })
     }
 }
-
-const auth = firebase.auth();
 
 const signUp= (email, password) => {
     firebase.auth().createUserWithEmailAndPassword(email, password)

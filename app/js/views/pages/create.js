@@ -31,15 +31,14 @@ let Create = {
     after_render: async () => {
         let form = document.forms["create-form"];
         form.addEventListener("submit", (e) => {
-            let now = Date.now();
             let new_word = {
                 word: form.elements['word'].value.trim(),
                 def: form.elements['def'].value.trim(),
                 extra: form.elements['extra'].value.trim(),
                 source: form.elements['source'].value.trim(),
                 rating: 0,
-                creator: firebase.auth().currentUser,
-                timestamp: now.getTime()
+                creator: localStorage.getItem("login"),
+                timestamp: Date.now()
             };
             console.log(new_word);
             e.preventDefault();
@@ -48,7 +47,7 @@ let Create = {
     }
 }
 const CreateWord = function(word) {
-    var newWordRef = direbase.database().ref("words/").push();
+    var newWordRef = firebase.database().ref("words/").push();
     newWordRef.set(word);
     Router._instance.navigate("/");
 }

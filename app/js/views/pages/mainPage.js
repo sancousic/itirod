@@ -1,4 +1,9 @@
-import Router from "../../router.js";
+import {Router} from "../../router.js";
+import FeedCard from "../components/feedCard.js";
+
+let wordsCardData;
+const wordsRef = firebase.database().ref("words/");
+let feed_section;
 
 let MainPage = {
     render: async() => {
@@ -17,7 +22,7 @@ let MainPage = {
                         </div>                
                     </section>
                     
-                    <section>
+                    <section id="feed-section">
                         <div class="h-container">
                             <div class="h-box">
                                 <div class="sort">
@@ -35,8 +40,28 @@ let MainPage = {
         return view;                    
     },
     after_render: async () => {
-        
+        feed_section = document.getElementById("feed-section");
+        if(!wordsCardData) {
+            wordsCardData = [];
+            await GetWordsData();
+        }
     }
+}
+
+const GetWordsData = async () => {
+    // await wordsRef.once('value').then(function(snapshot) {
+    //     snapshot.forEach(function(child) {
+    //         wordsCardData.push(child.val());
+    //     });
+    // });
+    wordsRef.on('child_added', async function(data) {
+        let word = data.val();
+        word.key = data.key;
+        wordsCardData.push(word);
+        let card = await FeedCard.render(word);
+        feed_section.insertAdjacentHTML('beforeend', card);
+        console.log(wordsCardData.length, wordsCardData);
+    });
 }
 
 export default MainPage;

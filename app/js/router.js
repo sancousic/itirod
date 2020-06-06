@@ -4,7 +4,6 @@ import Error404 from "./views/pages/Error404.js";
 
 export class Router {
     static _instance = null;
-    routes;
 
     constructor(routes) {
         this.routes = routes;
