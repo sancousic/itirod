@@ -29,24 +29,39 @@ let FeedCard = {
         let user = firebase.auth().currentUser
         let rating_view = document.getElementById(`${word.key}-rating`);
         const ref = firebase.database().ref(`words/${word.key}/rating`);
-        ref.on('value', async function(data) {
-            let rating = data.val();
-            if(Router.currentPage == MainPage) {
-                rating_view.innerHTML = rating;
-            }
-            for(let i = 0; i < wordsCardData.length; i++) {
-                if(wordsCardData[i].key == word.key) {
-                    wordsCardData[i].rating = rating;
-                    break;
-                }
-            }
-        })
+        
         if(user) {
             let rowElem = document.getElementById(word.key+"-row");
             let rowView = await Row.render(word);
             rowElem.insertAdjacentHTML('beforeend', rowView);
             await Row.after_render(word);
         }
+        ref.on('value', async function(data) {
+            let rating = data.val();
+            
+            const index = wordsCardData.indexOf(word);
+            if(rating < -30) {
+                wordsCardData.splice(index, 1);
+                if(Router.currentPage == MainPage) {
+                    let card = document.getElementById(`${word.key}`);
+                    card.remove();
+                }
+                await firebase.database().ref(`words/${word.key}`).remove();
+            }
+            else {
+                wordsCardData[index].rating = rating;
+                if(Router.currentPage == MainPage) {
+                    
+                    rating_view.innerHTML = rating;
+                }
+            }
+            // for(let i = 0; i < wordsCardData.length; i++) {
+            //     if(wordsCardData[i].key == word.key) {
+            //         wordsCardData[i].rating = rating;
+            //         break;
+            //     }
+            // }
+        })
     }
 }
 
