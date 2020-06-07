@@ -1,7 +1,7 @@
 import {Router} from "../../router.js";
 import FeedCard from "../components/feedCard.js";
 
-let wordsCardData;
+export let wordsCardData;
 const wordsRef = firebase.database().ref("words/");
 let feed_section;
 
@@ -45,22 +45,31 @@ let MainPage = {
             wordsCardData = [];
             await GetWordsData();
         }
+        else {
+            for (const word of wordsCardData) {
+                let card = await FeedCard.render(word);
+                feed_section.insertAdjacentHTML('beforeend', card);
+                await FeedCard.after_render(word);
+                console.log("rendered: ", word);
+            }
+        }
     }
 }
 
 const GetWordsData = async () => {
-    // await wordsRef.once('value').then(function(snapshot) {
-    //     snapshot.forEach(function(child) {
-    //         wordsCardData.push(child.val());
-    //     });
-    // });
     wordsRef.on('child_added', async function(data) {
         let word = data.val();
         word.key = data.key;
         wordsCardData.push(word);
-        let card = await FeedCard.render(word);
-        feed_section.insertAdjacentHTML('beforeend', card);
-        console.log(wordsCardData.length, wordsCardData);
+        console.log("current page: ", Router.currentPage);
+        if(Router.currentPage == MainPage)
+        {
+            let card = await FeedCard.render(word);
+            feed_section.insertAdjacentHTML('beforeend', card); 
+            await FeedCard.after_render(word);
+            console.log("rendered in ON");
+        }    
+        console.log(wordsCardData.length, wordsCardData);    
     });
 }
 

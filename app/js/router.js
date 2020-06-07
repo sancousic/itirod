@@ -4,6 +4,7 @@ import Error404 from "./views/pages/Error404.js";
 
 export class Router {
     static _instance = null;
+    static currentPage = null;
 
     constructor(routes) {
         this.routes = routes;
@@ -11,8 +12,8 @@ export class Router {
     }
 
     _onPopState() {
-        if(this.currentPage && this.currentPage.onDestroy) {
-            this.currentPage.onDestroy();
+        if(Router.currentPage && Router.currentPage.onDestroy) {
+            Router.currentPage.onDestroy();
         }
         this.loadPage(this.parseCurrentURL());
     }
@@ -42,8 +43,8 @@ export class Router {
     }
 
     navigate(url) {
-        if (this.currentPage && this.currentPage.onDestroy){
-            this.currentPage.onDestroy();
+        if (Router.currentPage && Router.currentPage.onDestroy){
+            Router.currentPage.onDestroy();
         }
 
         history.pushState({}, "", url);
@@ -55,14 +56,14 @@ export class Router {
     async loadPage(url){
         const content = null || document.getElementById('main-box');
 
-        this.currentPage = Error404
+        Router.currentPage = Error404
         for (const { path, page} of Router._instance.routes) {
             if (path === url){
-                this.currentPage = page;
+                Router.currentPage = page;
             }
         }
-        content.innerHTML = await this.currentPage.render();
-        await this.currentPage.after_render();
+        content.innerHTML = await Router.currentPage.render();
+        await Router.currentPage.after_render();
     }
 
     parseCurrentURL(){

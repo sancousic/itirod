@@ -28,10 +28,10 @@ img.btn:hover
     transform: rotateZ(15deg);
     filter: invert(100%);
 }
-red {
+button img.red {
     filter: invert(30%) sepia(100%) saturate(2000%)  hue-rotate(-15deg); 
 }
-green {
+button img.green {
     filter: invert(30%) sepia(51%) saturate(3000%) hue-rotate(100deg);
 }
 div.rating {

@@ -1,5 +1,4 @@
 import Router from "../../router.js";
-const auth = firebase.auth();
 
 let Register = {
     render: async() => {
@@ -39,17 +38,20 @@ let Register = {
 }
 
 const signUp= (email, password) => {
-    firebase.auth().createUserWithEmailAndPassword(email, password)
+    const auth = firebase.auth();
+    auth.createUserWithEmailAndPassword(email, password)
         .then(function(result) {
             return result.user.updateProfile({
                 displayName: email
             }).then(function() {
                 localStorage.setItem('login', email);
+                localStorage.setItem('uid', auth.currentUser.uid);
+                console.log("uid: ", localStorage.getItem("uid"));
                 Router._instance.navigate("/");
             })
         }).catch(function(error) {
-        console.log(error);
-    });
+            console.log(error);
+        });
 }
 
 const validate = (password, confirm_password) => {

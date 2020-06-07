@@ -73,6 +73,7 @@ let Header = {
                     console.log("logout");
                     firebase.auth().signOut().then(() => {
                         localStorage.removeItem("login");
+                        localStorage.removeItem("uid");
                         Router._instance.navigate("/");
                     });                    
                 });
