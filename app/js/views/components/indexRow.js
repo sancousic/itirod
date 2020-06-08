@@ -1,11 +1,11 @@
 let Row = {
-    render : async (word) => {
+    render : async (word, type) => {
         let view = /*HTML*/`
                     <button class="btn vote">
-                        <img id="${word.key}-upvote" src="./images/thumbs-up-solid.svg" class="btn" alt="">
+                        <img id="${word.key}-upvote${type == "day" ? "-day" : ""}" src="./images/thumbs-up-solid.svg" class="btn" alt="">
                     </button>
                     <button class="btn vote">
-                        <img id="${word.key}-downvote" src="./images/thumbs-down-solid.svg" class="btn" alt="">
+                        <img id="${word.key}-downvote${type == "day" ? "-day" : ""}" src="./images/thumbs-down-solid.svg" class="btn" alt="">
                     </button>
                     <div class="report">
                         <button class="btn report">
@@ -15,57 +15,47 @@ let Row = {
                     `;
         return view;
     },
-    after_render: async (word) =>
+    after_render: async (word, type) =>
     {   
         let user = { 
             login: localStorage.getItem("login"),
             uid: localStorage.getItem("uid")
         }
         let votes = await GetUsersVote(word.key, user);
-        let up_img = document.getElementById(`${word.key}-upvote`);
-       
-        let down_img = document.getElementById(`${word.key}-downvote`);
-
+        let up_img = document.getElementById(`${word.key}-upvote${type == "day" ? "-day" : ""}`);       
+        let down_img = document.getElementById(`${word.key}-downvote${type == "day" ? "-day" : ""}`);
+        OnChange(up_img, down_img, user, word);
         const upCancelVote = async function() {
-            console.log("CancelVote");
             await ChangeVoteNumber("down", word);
             firebase.database().ref(`users/${user.uid}/${word.key}`).remove();
-            up_img.classList.remove("green");
             up_img.removeEventListener("click", upCancelVote);
             up_img.addEventListener("click", UpVote);
         }
         const downCancelVote = async function() {
-            console.log("CancelVote");
             firebase.database().ref(`users/${user.uid}/${word.key}`).remove();
             await ChangeVoteNumber("up", word);
-            down_img.classList.remove("red");     
             down_img.removeEventListener("click", downCancelVote);
             down_img.addEventListener("click", DownVote);       
         }
         const UpVote = async function() {
-            console.log("UpVote");
             if(down_img.classList.contains("red")) {
                 await downCancelVote();
             }
             await ChangeVoteNumber("up", word);
             AddVote("up", word.key, user);
-            up_img.classList.add("green");
             up_img.removeEventListener("click", UpVote);
             up_img.addEventListener("click", upCancelVote);
         }
         const DownVote = async function() {
-            console.log("DownVote");
             if(up_img.classList.contains("green")) {
                 await upCancelVote();
             }
             await ChangeVoteNumber("down", word);
             AddVote("down", word.key, user);
-            down_img.classList.add("red");
             down_img.removeEventListener("click", DownVote);
             down_img.addEventListener("click", downCancelVote);
         }
         if(votes.up) {
-            up_img.classList.add("green");
             up_img.addEventListener("click", upCancelVote);
             down_img.addEventListener("click", DownVote);
         }
@@ -83,7 +73,6 @@ let Row = {
 
 const GetUsersVote = async function(wordId, user) {
     let vote = {};
-    console.log("user:", user);
     await firebase.database()
         .ref(`users/${user.uid}/${wordId}`)
         .once("value")
@@ -107,6 +96,25 @@ const ChangeVoteNumber = async function(type, word) {
     });
     let add = type == "up" ? 1 : -1;
     await db.set(rating + add);
+}
+const OnChange = async function(up, down, user, word) {
+    firebase.database().ref(`users/${user.uid}/${word.key}`)
+        .on('value', function(snapshot) {  
+            let val = snapshot.val();
+            if(snapshot.exists()) {
+                if(val.up) {
+                    up.classList.add('green');
+                    down.classList.remove('red');
+                }
+                else if(val.down) {
+                    up.classList.remove('green');
+                    down.classList.add('red');
+                }
+            } else {
+                up.classList.remove('green');
+                down.classList.remove('red');
+            }
+        });
 }
 
 export default Row;

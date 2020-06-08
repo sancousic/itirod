@@ -2,6 +2,7 @@ import {Router} from "../../router.js";
 import Row from "./indexRow.js";
 import MainPage from "../pages/mainPage.js";
 import {wordsCardData} from "../pages/mainPage.js";
+import WordOfDay from "./wordOfDay.js";
 
 let FeedCard = {
     render: async (word) => {
@@ -32,9 +33,9 @@ let FeedCard = {
         
         if(user) {
             let rowElem = document.getElementById(word.key+"-row");
-            let rowView = await Row.render(word);
+            let rowView = await Row.render(word, "");
             rowElem.insertAdjacentHTML('beforeend', rowView);
-            await Row.after_render(word);
+            await Row.after_render(word, "");
         }
         ref.on('value', async function(data) {
             let rating = data.val();
@@ -50,9 +51,12 @@ let FeedCard = {
             }
             else {
                 wordsCardData[index].rating = rating;
-                if(Router.currentPage == MainPage) {
-                    
+                if(Router.currentPage == MainPage) {                    
                     rating_view.innerHTML = rating;
+                    if(WordOfDay.wordOfDay.key == word.key) {
+                        let rating_day_view = document.getElementById(`${word.key}-rating-day`);
+                        rating_day_view.innerHTML = rating;
+                    }
                 }
             }
             // for(let i = 0; i < wordsCardData.length; i++) {

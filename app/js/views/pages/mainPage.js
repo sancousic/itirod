@@ -1,5 +1,6 @@
 import {Router} from "../../router.js";
 import FeedCard from "../components/feedCard.js";
+import WordOfDay from "../components/wordOfDay.js";
 
 export let wordsCardData;
 const wordsRef = firebase.database().ref("words/");
@@ -16,12 +17,10 @@ let MainPage = {
                                     <h1 class="standart">Word of day</h1>
                                 </div>                         
                             </div>
-                            <div class="index-card" id="day-card">
-                                
+                            <div class="index-card" id="day-card">                                
                             </div>                        
                         </div>                
-                    </section>
-                    
+                    </section>                    
                     <section id="feed-section">
                         <div class="h-container">
                             <div class="h-box">
@@ -41,16 +40,26 @@ let MainPage = {
     },
     after_render: async () => {
         feed_section = document.getElementById("feed-section");
+        let wordOfDayCard = document.getElementById("day-card");
+
+        let word_of_day = await WordOfDay.getWordOfDay();        
+        if(word_of_day) {
+            let wordOfDayView = await WordOfDay.render(word_of_day);
+            wordOfDayCard.insertAdjacentHTML('beforeend', wordOfDayView);
+            WordOfDay.after_render(word_of_day);
+        } else {
+            let wordOfDayView = await WordOfDay.NoWordOfDay();
+            wordOfDayCard.insertAdjacentHTML('beforeend', wordOfDayView);
+        }            
+
         if(!wordsCardData) {
             wordsCardData = [];
             await GetWordsData();
-        }
-        else {
+        } else {
             for (const word of wordsCardData) {
                 let card = await FeedCard.render(word);
                 feed_section.insertAdjacentHTML('beforeend', card);
                 await FeedCard.after_render(word);
-                console.log("rendered: ", word);
             }
         }
     }
@@ -61,15 +70,12 @@ const GetWordsData = async () => {
         let word = data.val();
         word.key = data.key;
         wordsCardData.push(word);
-        console.log("current page: ", Router.currentPage);
         if(Router.currentPage == MainPage)
         {
             let card = await FeedCard.render(word);
             feed_section.insertAdjacentHTML('beforeend', card); 
             await FeedCard.after_render(word);
-            console.log("rendered in ON");
         }    
-        console.log(wordsCardData.length, wordsCardData);    
     });
 }
 
