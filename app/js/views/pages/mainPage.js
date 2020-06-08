@@ -1,6 +1,7 @@
 import {Router} from "../../router.js";
 import FeedCard from "../components/feedCard.js";
 import WordOfDay from "../components/wordOfDay.js";
+import ReportCard from "../components/report.js";
 
 export let wordsCardData;
 const wordsRef = firebase.database().ref("words/");
@@ -44,6 +45,10 @@ let MainPage = {
         let wordOfDayCard = document.getElementById("day-card");
         let dateSortBtn =  document.getElementById("btn-date__sort");
         let ratingSortBtn =  document.getElementById("btn-rating__sort");
+
+        let report_card = await ReportCard.render();
+        document.getElementById("wrapper").insertAdjacentHTML('beforeend', report_card);
+        await ReportCard.after_render(); 
 
         let word_of_day = await WordOfDay.getWordOfDay();        
         if(word_of_day) {

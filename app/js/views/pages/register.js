@@ -29,9 +29,9 @@ let Register = {
         });
 
         form.addEventListener("submit", (e) => {
-            let login_value = form.elements["login"].value;
-            let password_value = password.value;
             e.preventDefault();
+            let login_value = form.elements["login"].value;
+            let password_value = password.value;            
             signUp(login_value, password_value);
         })
     }

@@ -8,7 +8,7 @@ let Row = {
                         <img id="${word.key}-downvote${type == "day" ? "-day" : ""}" src="./images/thumbs-down-solid.svg" class="btn" alt="">
                     </button>
                     <div class="report">
-                        <button class="btn report">
+                        <button id="${word.key}-report${type == "day" ? "-day" : ""}" class="btn report">
                             report
                         </button>
                     </div>
@@ -24,6 +24,15 @@ let Row = {
         let votes = await GetUsersVote(word.key, user);
         let up_img = document.getElementById(`${word.key}-upvote${type == "day" ? "-day" : ""}`);       
         let down_img = document.getElementById(`${word.key}-downvote${type == "day" ? "-day" : ""}`);
+
+        let report = document.getElementById(`${word.key}-report${type == "day" ? "-day" : ""}`);
+        report.addEventListener('click', function() {
+            const report_card = document.getElementById("report-card"); 
+            let form = document.forms["report-form"];
+            form["word-report"].value = word.key;
+            report_card.classList.replace("hide", "report-card");
+        });
+
         OnChange(up_img, down_img, user, word);
         const upCancelVote = async function() {
             await ChangeVoteNumber("down", word);
