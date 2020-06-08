@@ -41,15 +41,17 @@ const signUp= (email, password) => {
     const auth = firebase.auth();
     auth.createUserWithEmailAndPassword(email, password)
         .then(function(result) {
+            localStorage.setItem('login', email);
             return result.user.updateProfile({
                 displayName: email
-            }).then(function() {
-                localStorage.setItem('login', email);
+            }).then(function() {                
                 localStorage.setItem('uid', auth.currentUser.uid);
                 console.log("uid: ", localStorage.getItem("uid"));
                 Router._instance.navigate("/");
             })
         }).catch(function(error) {
+            localStorage.removeItem('login');
+            localStorage.removeItem('uid');
             console.log(error);
         });
 }
