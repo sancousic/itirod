@@ -81,7 +81,8 @@ p.word {
         font-size: 15px;
         margin-left: 10px;
     }
-    div.index-card  {
+    div.index-card,
+    div.index-card-day  {
         margin: 0px 5px 10px 5px;
         padding: 10px;
     }
@@ -114,7 +115,8 @@ p.word {
         font-size: 14px;
         margin-left: 20px;
     }
-    div.index-card  {
+    div.index-card,
+    div.index-card-day  {
         margin: 0px 20px 10px 20px;
         padding: 10px;
     }

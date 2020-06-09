@@ -14,7 +14,7 @@ let Login = {
                         </div>  
                         <div class="row">
                             <p class="not-reg">Not registered?</p>
-                            <a class="reg" href="#register">Create an account!</a>
+                            <button class="reg" id="reg">Create an account!</a>
                         </div>
                     </div>  
                     `;
@@ -22,12 +22,18 @@ let Login = {
     },
     after_render: async () => {
         let form = document.forms["sign-in-form"];
+        let reg_btn = document.getElementById("reg");
+
+        reg_btn.addEventListener('click', function() {
+            Router._instance.navigate("/register");
+        });
         form.addEventListener("submit", (e) => {
             let mail = form.elements['login'].value;
             let pswd = form.elements['pswd'].value;
             e.preventDefault();
             signIn(mail, pswd);
         });
+
     }
 }
 

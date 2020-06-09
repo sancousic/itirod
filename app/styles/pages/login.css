@@ -14,9 +14,19 @@ div.row {
     flex-direction: row;
     justify-content: space-around;
 }
-div.row a,
+div.row button,
 div.row p {
     font-size: 15px;
+}
+div.row button {
+    outline: none;
+    background-color: transparent;
+    border: none;
+    transition-duration: 0.5s;
+    transition-property: color;
+}
+div.row button:hover {
+    color: red;
 }
 h1.login-h1 {
     color: black;
