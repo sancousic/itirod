@@ -9,13 +9,13 @@ let FeedCard = {
         let view = /*HTML*/`
                     <div class="index-card" id="${word.key}">
                         <div class="text date">
-                            <p class="text date">From ${word.creator} at ${new Date(word.timestamp)}</p>
+                            <p class="text date">From ${word.creator} at ${GetFormatedDate(word.timestamp)}</p>
                         </div>
                         <div class="text word">
                             <p class="word">${word.word}</p>
                         </div>
                         <div class="text def">
-                            <p class="def">${word.def}</p>
+                            <p class="def">${GetShortDef(word.def)}</p>
                         </div>
                         <div class="index-row" id="${word.key}-row">
                             <div class="rating">
@@ -69,5 +69,20 @@ let FeedCard = {
     }
 }
 
+const GetShortDef = function(defenition) {
+    if(defenition.length < 50) {
+        return defenition;
+    }
+
+    return defenition.substring(0, 50).trim() + '...';
+}
+
+export const GetFormatedDate = function(ms) {
+    let date = new Date(ms);
+    return /*DateFormat?*/`${date.getDate() < 10 ? "0" + date.getDate() : date.getDate()}.` +
+                `${date.getMonth() < 9 ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1)}.` +
+                `${date.getFullYear()} ${date.getHours() < 10 ? "0" + date.getHours() : date.getHours()}:` +
+                `${date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()}`;
+}
 
 export default FeedCard;

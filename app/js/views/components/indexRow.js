@@ -32,7 +32,7 @@ let Row = {
             form["word-report"].value = word.key;
             report_card.classList.replace("hide", "report-card");
         });
-
+        
         OnChange(up_img, down_img, user, word);
         const upCancelVote = async function() {
             await ChangeVoteNumber("down", word);

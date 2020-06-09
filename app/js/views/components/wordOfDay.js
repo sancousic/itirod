@@ -2,13 +2,14 @@ import {Router} from "../../router.js";
 import Row from "./indexRow.js";
 import MainPage from "../pages/mainPage.js";
 import {wordsCardData} from "../pages/mainPage.js";
+import {GetFormatedDate} from "./feedCard.js";
 
 let WordOfDay = {
     wordOfDay: null,
     render: async (word) => {
         let view = /*HTML*/`                    
                     <div class="text date">
-                        <p class="text date">From ${word.creator} at ${new Date(word.timestamp)}</p>
+                        <p class="text date">From ${word.creator} at ${GetFormatedDate(word.timestamp)}</p>
                     </div>
                     <div class="text word">
                         <p class="word">${word.word}</p>
