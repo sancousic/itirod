@@ -1,13 +1,5 @@
 @import url('../base/colors.css');
 
-form.create-form {
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 700px;
-    margin: 0 auto;
-}
 input.create-input,
 textarea.create-textarea {
     border: 1px solid gainsboro;
@@ -16,6 +8,7 @@ textarea.create-textarea {
     padding: 6px;
     margin: 10px 0;
     width: 100%;
+    max-width: 100%;
     outline: 0;
 }
 input.create-input:focus,
@@ -24,6 +17,7 @@ textarea.create-textarea :focus {
 }
 input.create-input {
     max-width: 700px;
+    max-width: 100%;
 }
 textarea.create-textarea {
     width: auto;
@@ -32,10 +26,12 @@ textarea.create-textarea {
     min-height: 20px;
     max-height: 200px;
     min-width: 200px;
+    max-width: 100%;
 }
 
 label.create-label {
     font-size: 15px;
     font-weight: bold;
     align-self: flex-start;
+    max-width: 100%;
 }

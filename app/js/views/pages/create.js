@@ -10,20 +10,18 @@ let Create = {
                             </div>                         
                         </div>
                         <div class="create-card">                
-                            <div>
-                                <form class="create-form" name="create-form">
-                                    <label class="create-label" for="word">Word</label>
-                                    <input type="text" class="create-input" placeholder="Input your word here" name="word" id="word">
-                                    <label for="def" class="create-label">Defenition</label>
-                                    <input type="text" class="create-input " placeholder="Input your word defenition here" name="def" id="def">
-                                    <label for="extra" class="create-label">Extra comments</label>
-                                    <textarea name="extra" class="create-textarea" placeholder="Input your extra comments here" id="extra"></textarea>
-                                    <label for="source" class="create-label">Sources</label>
-                                    <textarea name="source" class="create-textarea" placeholder="Input your sources" id="source"></textarea>                       
-                                    <input type="submit" class="create-input" value="Create">                                           
-                                </form>
-                            </div>
-                        </div>  
+                            <form class="create-form" name="create-form">
+                                <label class="create-label" for="word">Word</label>
+                                <input type="text" class="create-input" placeholder="Input your word here" name="word" id="word">
+                                <label for="def" class="create-label">Defenition</label>
+                                <input type="text" class="create-input " placeholder="Input your word defenition here" name="def" id="def">
+                                <label for="extra" class="create-label">Extra comments</label>
+                                <textarea name="extra" class="create-textarea" placeholder="Input your extra comments here" id="extra"></textarea>
+                                <label for="source" class="create-label">Sources</label>
+                                <textarea name="source" class="create-textarea" placeholder="Input your sources" id="source"></textarea>                       
+                                <input type="submit" class="create-input" value="Create">                                           
+                            </form>
+                    </div>  
                     </div>      
                     `;
         return view;
