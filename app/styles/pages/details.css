@@ -1,0 +1,20 @@
+a#back-btn {
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    border: 1px solid;
+    padding: 2px;
+    background-color: var(--button-color);
+    outline: 0;
+    border-radius: 10px;
+    transition-duration: 0.5s;
+    transition-property: color;
+}
+a#back-btn:hover {
+    animation-duration: 0.6s;
+    animation-delay: 0.5s;
+    background-color: var(--button-color2);
+}

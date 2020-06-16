@@ -2,10 +2,10 @@ let Row = {
     render : async (word, type) => {
         let view = /*HTML*/`
                     <button class="btn vote">
-                        <img id="${word.key}-upvote${type == "day" ? "-day" : ""}" src="./images/thumbs-up-solid.svg" class="btn" alt="">
+                        <img id="${word.key}-upvote${type == "day" ? "-day" : ""}" src="/images/thumbs-up-solid.svg" class="btn" alt="">
                     </button>
                     <button class="btn vote">
-                        <img id="${word.key}-downvote${type == "day" ? "-day" : ""}" src="./images/thumbs-down-solid.svg" class="btn" alt="">
+                        <img id="${word.key}-downvote${type == "day" ? "-day" : ""}" src="/images/thumbs-down-solid.svg" class="btn" alt="">
                     </button>
                     <div class="report">
                         <button id="${word.key}-report${type == "day" ? "-day" : ""}" class="btn report">

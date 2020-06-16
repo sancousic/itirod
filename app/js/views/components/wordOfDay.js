@@ -31,15 +31,25 @@ let WordOfDay = {
         return view;
     },
     after_render: async (word) => {
-        let user = firebase.auth().currentUser
-        let rating_view = document.getElementById(`${word.key}-rating-day`);
-        const ref = firebase.database().ref(`words/${word.key}/rating`);
-        
+        let user = firebase.auth().currentUser;
+        if(Router.currentPage == MainPage) {
+            let card = document.getElementById('day-card');            
+            card.addEventListener('click', function(e) {    
+                let up_img = document.getElementById(`${word.key}-upvote-day`);       
+                let down_img = document.getElementById(`${word.key}-downvote-day`);  
+                let report = document.getElementById(`${word.key}-report-day`);       
+                if(user && (!up_img.contains(e.target)) 
+                    && (!down_img.contains(e.target))
+                     && (!report.contains(e.target))) {
+                        Router._instance.navigate(`/details/${word.key}`);
+                }
+            });
+        }
         if(user) {
             let rowElem = document.getElementById(word.key+"-row-day");
             let rowView = await Row.render(word, "day");
             rowElem.insertAdjacentHTML('beforeend', rowView);
-            await Row.after_render(WordOfDay.wordOfDay, "day");
+            await Row.after_render(word, "day");
         }
     },
     getWordOfDay: async () => {
