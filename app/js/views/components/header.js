@@ -38,7 +38,7 @@ let Header = {
                             </div>
                         </nav>                        
                         <div class="menu-bar">                            
-                            <img src="./images/bars-solid.svg" class="burger" id="burger" alt="">                            
+                            <img src="/images/bars-solid.svg" class="burger" id="burger" alt="">                            
                         </div>
                     </div>
                     <nav class="nav-bot" id="nav-bot">
