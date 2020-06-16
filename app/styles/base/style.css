@@ -14,6 +14,7 @@ main {
     flex: 1 0 auto;
     box-sizing: border-box;
     max-width: 1000px;
+    width: 100%;
     min-height: 100%;
     margin: 0 auto;
 }
@@ -21,7 +22,7 @@ div.content {
     background-color: var(--content-color);
     padding-bottom: 5px;
     box-sizing: border-box;
-    width: 100vw;
+    width: 100%;
 }
 /*headlines*/
 div.h-container {

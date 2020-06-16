@@ -4,7 +4,7 @@ div.create-card {
     flex-direction: column;
     justify-content: space-between;
     border-radius: 10px;
-    width: 100vw;
+    width: 100%;
     max-width: 900px;
     align-items: center;
     background-color: var(--card-color);

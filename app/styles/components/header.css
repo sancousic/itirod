@@ -11,14 +11,13 @@ a.sign-out {
     padding: 0!important;
     cursor: pointer;
     outline: 0;
-    margin-left: 5px;
 }
 nav { 
-    width: 100vw;
+    width: 100%;
 }
 div.wrapper {    
     min-height: 100%;
-    width: 100vw;
+    width: 100%;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -85,10 +84,12 @@ p.copyright, div.footer-container a {
     text-decoration: none;
     display: flex;
     align-self: center;
-    margin-left: 5px;
     height: 100%;
     transition-duration: 0.5s;
     transition-property: all;
+}
+div.disappearing {
+    padding-left: 10px;
 }
 @media (max-width: 768px)
 {
@@ -124,7 +125,7 @@ p.copyright, div.footer-container a {
         background-color: var(--header-links-color);
     }
     nav.nav-bot a.ref, 
-    nav.nav-bot a.sign-out
+    nav.nav-bot a.sign-out,
     nav.nav-bot p {
         display: flex;
         box-sizing: border-box;
@@ -132,7 +133,6 @@ p.copyright, div.footer-container a {
         padding-left: 10px;
         color: white;
         height: 30px;
-        width: 100%;
         text-decoration: none;
         align-self: flex-start;
         font-family: 'Chelsea Market', cursive;
