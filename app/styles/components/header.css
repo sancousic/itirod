@@ -4,7 +4,7 @@ div.hide,
 nav.hide {
     display: none;
 }
-button.ref {
+a.ref {
     border: none;
     background-color: transparent;
     padding: 0!important;
@@ -50,10 +50,10 @@ div.right {
     display: flex;
     flex-direction: row;
 }
-div.left button.ref{    
+div.left a{    
     margin-left: 20px;
 }
-div.header-container button.ref {    
+div.header-container a.ref {    
     font-family: 'Chelsea Market', cursive;
     color: white;    
     text-decoration: none;
@@ -64,14 +64,14 @@ div.header-container p {
     font-family: 'Chelsea Market', cursive;
     color: white;
 }
-div.header-container button.ref:hover,
+div.header-container a.ref:hover,
 div.footer-container a:hover {
     animation-duration: 1s;
     animation-delay: 0.5s;
     animation-timing-function: linear;
     color: red;
 }
-div.header-container button.ref.label
+div.header-container a.ref.label
 {
     font-family: 'Indie Flower', cursive;
     margin-left: 0;
@@ -92,10 +92,10 @@ p.copyright, div.footer-container a {
     div.disappearing {
         display: none;
     }    
-    div.header-container button.ref.label {
+    div.header-container a.ref.label {
         font-size: 25px;
     }
-    p.copyright, div.footer-container button.ref 
+    p.copyright, div.footer-container a.ref 
     {
         font-size: 12px;
     }    
@@ -120,7 +120,7 @@ p.copyright, div.footer-container a {
         width: 100%;
         background-color: var(--header-links-color);
     }
-    nav.nav-bot button.ref, 
+    nav.nav-bot a.ref, 
     nav.nav-bot p {
         display: flex;
         box-sizing: border-box;
@@ -134,10 +134,10 @@ p.copyright, div.footer-container a {
         font-family: 'Chelsea Market', cursive;
         font-size: 15px;
     }
-    nav.nav-bot button.ref:hover {
+    nav.nav-bot a.ref:hover {
         background-color: var(--header-links-color2);
     }
-    nav button.ref.label {
+    nav a.ref.label {
         padding-left: 15px;
     }
 }
@@ -150,19 +150,19 @@ p.copyright, div.footer-container a {
         min-height: 50px;
         max-height: 50px;
     }
-    div.right button.ref, div.right p {    
+    div.right a.ref, div.right p {    
         margin-right: 20px;
     }
-    div.header-container button.ref {
+    div.header-container a.ref {
         font-size: 20px;
     }
     div.header-container p {
         font-size: 17px;
     }
-    div.header-container button.ref.label {
+    div.header-container a.ref.label {
         font-size: 30px;
     }
-    p.copyright, div.footer-container button.ref 
+    p.copyright, div.footer-container a.ref 
     {
         font-size: 20px;
     }

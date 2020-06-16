@@ -3,20 +3,20 @@ import {Router} from "../../router.js"
 let user;
 
 let notAutorized = /*html*/`
-                    <button class="ref sign-in">Sign in</button>
-                    <button class="ref sign-up">Sign up</button>
+                    <a href="https://mydictionary-320fb.web.app/login" class="ref sign-in">Sign in</a>
+                    <a href="https://mydictionary-320fb.web.app/register" class="ref sign-up">Sign up</a>
                     `;
 
 let authorized = (userName) => {
     let view = /*html*/`
                 <p id="username" class="username">${userName}</p>
-                <button class="ref sign-out">Log out</button>
+                <a href="https://mydictionary-320fb.web.app/logout" class="ref sign-out">Log out</a>
                 `;
     return view;
 }
 
 let addWord = /*html*/`
-            <button class="ref create-word">Create Word</button>
+            <a href="https://mydictionary-320fb.web.app/create" class="ref create-word">Create Word</a>
             `;
 
 let Header = {
@@ -29,7 +29,7 @@ let Header = {
         let view = /*HTML*/`
                     <div class="header-container">
                         <nav>                            
-                            <button class="ref label" id="home-label">MyDictionary</button>    
+                            <a href="https://mydictionary-320fb.web.app" class="ref label" id="home-label">MyDictionary</a>    
                             <div class="disappearing">
                                 ${user ? addWord : ``}
                             </div>                            
@@ -53,13 +53,15 @@ let Header = {
             var login_elements = document.getElementsByClassName("sign-in");
             var register_elements = document.getElementsByClassName("sign-up");
             for(let i = 0; i < login_elements.length; i++) {
-                login_elements[i].addEventListener("click", () => {
+                login_elements[i].addEventListener("click", (e) => {
+                    e.preventDefault();
                     Router._instance.navigate("/login");                   
                 })
             }
 
             for(let i = 0; i < register_elements.length; i++) {
-                register_elements[i].addEventListener("click", () => {
+                register_elements[i].addEventListener("click", (e) => {
+                    e.preventDefault();
                     Router._instance.navigate("/register");
                 })
             }
@@ -69,8 +71,9 @@ let Header = {
             var create_elements = document.getElementsByClassName("create-word");
 
             for(let i = 0; i < logout_elements.length; i++) {
-                logout_elements[i].addEventListener("click", () => {
+                logout_elements[i].addEventListener("click", (e) => {
                     console.log("logout");
+                    e.preventDefault();
                     firebase.auth().signOut().then(() => {
                         localStorage.removeItem("login");
                         localStorage.removeItem("uid");
@@ -80,7 +83,8 @@ let Header = {
             }
 
             for(let i = 0; i < create_elements.length; i++) {
-                create_elements[i].addEventListener("click", () => {
+                create_elements[i].addEventListener("click", (e) => {
+                    e.preventDefault();
                     Router._instance.navigate("/create");
                 });
             }
