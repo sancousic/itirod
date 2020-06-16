@@ -28,10 +28,17 @@ let Create = {
     },
     after_render: async () => {
         let form = document.forms["create-form"];
+
+        let word_field = form.elements['word'];
+        let def_field = form.elements['def'];
+
+        set_validate(word_field);
+        set_validate(def_field);
+
         form.addEventListener("submit", (e) => {
             let new_word = {
-                word: form.elements['word'].value.trim(),
-                def: form.elements['def'].value.trim(),
+                word: word_field.value.trim(),
+                def: def_field.value.trim(),
                 extra: form.elements['extra'].value.trim(),
                 source: form.elements['source'].value.trim(),
                 rating: 0,
@@ -48,6 +55,22 @@ const CreateWord = function(word) {
     var newWordRef = firebase.database().ref("words/").push();
     newWordRef.set(word);
     Router._instance.navigate("/");
+}
+
+const empty_validate = (elem) => {
+    if(elem.value == '') {
+        elem.setCustomValidity("Field shuld't be empty!")
+    }
+    else {
+        elem.setCustomValidity('')
+    }
+}
+
+const set_validate = function(elem) {
+    empty_validate(elem);
+    elem.addEventListener("keyup", () => {
+        empty_validate(elem);
+    });
 }
 
 export default Create;

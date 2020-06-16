@@ -21,18 +21,25 @@ let Register = {
         let form = document.forms["sign-up-form"];
         let password = form.elements["pswd"];
         let confiurm = form.elements["confiurm"];
+        let login = form.elements["login"];
+
+        empty_validate(password);
+        empty_validate(login);
         password.addEventListener("keyup", () => {
-            validate(password, confiurm)
+            compare_validate(password, confiurm);
+            empty_validate(password);
         });
         confiurm.addEventListener("keyup", () => {
-            validate(password, confiurm)
+            compare_validate(password, confiurm)
+        });
+        login.addEventListener("keyup", () => {
+            empty_validate(login);
         });
 
         form.addEventListener("submit", (e) => {
             e.preventDefault();
-            let login_value = form.elements["login"].value;
             let password_value = password.value;            
-            signUp(login_value, password_value);
+            signUp(login.value, password_value);
         })
     }
 }
@@ -56,12 +63,22 @@ const signUp= (email, password) => {
         });
 }
 
-const validate = (password, confirm_password) => {
+const compare_validate = (password, confirm_password) => {
     if(password.value !== confirm_password.value) {
         confirm_password.setCustomValidity("Passwords Don't Match");
     } else {
         confirm_password.setCustomValidity('');
     }
 }
+
+const empty_validate = (elem) => {
+    if(elem.value == '') {
+        elem.setCustomValidity("Field shuld't be empty!")
+    }
+    else {
+        elem.setCustomValidity('')
+    }
+}
+
 
 export default Register;
