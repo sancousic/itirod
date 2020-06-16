@@ -4,7 +4,8 @@ div.hide,
 nav.hide {
     display: none;
 }
-a.ref {
+a.ref,
+a.sign-out {
     border: none;
     background-color: transparent;
     padding: 0!important;
@@ -53,7 +54,8 @@ div.right {
 div.left a{    
     margin-left: 20px;
 }
-div.header-container a.ref {    
+div.header-container a.ref,
+div.header-container a.sign-out {    
     font-family: 'Chelsea Market', cursive;
     color: white;    
     text-decoration: none;
@@ -65,6 +67,7 @@ div.header-container p {
     color: white;
 }
 div.header-container a.ref:hover,
+div.header-container a.sign-out:hover
 div.footer-container a:hover {
     animation-duration: 1s;
     animation-delay: 0.5s;
@@ -121,6 +124,7 @@ p.copyright, div.footer-container a {
         background-color: var(--header-links-color);
     }
     nav.nav-bot a.ref, 
+    nav.nav-bot a.sign-out
     nav.nav-bot p {
         display: flex;
         box-sizing: border-box;
@@ -134,7 +138,8 @@ p.copyright, div.footer-container a {
         font-family: 'Chelsea Market', cursive;
         font-size: 15px;
     }
-    nav.nav-bot a.ref:hover {
+    nav.nav-bot a.ref:hover,
+    nav.nav-bot a.sign-out:hover {
         background-color: var(--header-links-color2);
     }
     nav a.ref.label {
@@ -150,10 +155,12 @@ p.copyright, div.footer-container a {
         min-height: 50px;
         max-height: 50px;
     }
-    div.right a.ref, div.right p {    
+    div.right a.ref, div.right p,
+    div.right a.sign-out{    
         margin-right: 20px;
     }
-    div.header-container a.ref {
+    div.header-container a.ref,
+    div.header-container a.sign-out {
         font-size: 20px;
     }
     div.header-container p {
@@ -168,6 +175,5 @@ p.copyright, div.footer-container a {
     }
     nav.nav-bot {
         display: none;
-    }
-    
+    }    
 }

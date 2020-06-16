@@ -10,7 +10,7 @@ let notAutorized = /*html*/`
 let authorized = (userName) => {
     let view = /*html*/`
                 <p id="username" class="username">${userName}</p>
-                <a href="https://mydictionary-320fb.web.app/logout" class="ref sign-out">Log out</a>
+                <a href="https://mydictionary-320fb.web.app/logout" class="sign-out">Log out</a>
                 `;
     return view;
 }
@@ -49,26 +49,18 @@ let Header = {
         return view;
     },
     after_render: async () => {
-        if(!user) {
-            var login_elements = document.getElementsByClassName("sign-in");
-            var register_elements = document.getElementsByClassName("sign-up");
-            for(let i = 0; i < login_elements.length; i++) {
-                login_elements[i].addEventListener("click", (e) => {
-                    e.preventDefault();
-                    Router._instance.navigate("/login");                   
-                })
-            }
+        var ref_elements = document.getElementsByClassName("ref");
 
-            for(let i = 0; i < register_elements.length; i++) {
-                register_elements[i].addEventListener("click", (e) => {
-                    e.preventDefault();
-                    Router._instance.navigate("/register");
-                })
-            }
+        for(let i = 0; i < ref_elements.length; i++) {
+            ref_elements[i].addEventListener("click", (e) => {
+                e.preventDefault();
+                const destination = e.target.href;
+                Router._instance.navigate(destination);                   
+            })
         }
-        else {
+        
+        if(user) {
             var logout_elements = document.getElementsByClassName("sign-out");
-            var create_elements = document.getElementsByClassName("create-word");
 
             for(let i = 0; i < logout_elements.length; i++) {
                 logout_elements[i].addEventListener("click", (e) => {
@@ -81,19 +73,7 @@ let Header = {
                     });                    
                 });
             }
-
-            for(let i = 0; i < create_elements.length; i++) {
-                create_elements[i].addEventListener("click", (e) => {
-                    e.preventDefault();
-                    Router._instance.navigate("/create");
-                });
-            }
         }
-
-        const label = document.getElementById("home-label");
-        label.addEventListener("click", () => {
-            Router._instance.navigate("/");
-        });
 
         const burger = document.getElementById("burger");
         burger.addEventListener("click", () => {

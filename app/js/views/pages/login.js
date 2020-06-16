@@ -14,7 +14,7 @@ let Login = {
                         </div>  
                         <div class="row">
                             <p class="not-reg">Not registered?</p>
-                            <button class="reg" id="reg">Create an account!</a>
+                            <a href="https://mydictionary-320fb.web.app/register" class="reg" id="reg">Create an account!</a>
                         </div>
                     </div>  
                     `;
@@ -24,8 +24,10 @@ let Login = {
         let form = document.forms["sign-in-form"];
         let reg_btn = document.getElementById("reg");
 
-        reg_btn.addEventListener('click', function() {
-            Router._instance.navigate("/register");
+        reg_btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const destination = e.target.href;
+            Router._instance.navigate(destination);   
         });
         form.addEventListener("submit", (e) => {
             let mail = form.elements['login'].value;
