@@ -32,14 +32,17 @@ let FeedCard = {
         const ref = firebase.database().ref(`words/${word.key}/rating`);
         
         let card = document.getElementById(word.key);
-        card.addEventListener('click', function(e) {    
-            let up_img = document.getElementById(`${word.key}-upvote`);       
-            let down_img = document.getElementById(`${word.key}-downvote`);  
-            let report = document.getElementById(`${word.key}-report`);       
-            if(user && (!up_img.contains(e.target)) 
-                && (!down_img.contains(e.target))
-                 && (!report.contains(e.target))) {
+        card.addEventListener('click', function(e) {   
+            if(user) {
+                let up_img = document.getElementById(`${word.key}-upvote`);       
+                let down_img = document.getElementById(`${word.key}-downvote`);  
+                let report = document.getElementById(`${word.key}-report`);     
+                if ((!up_img.contains(e.target)) && (!down_img.contains(e.target))
+                    && (!report.contains(e.target))) {
                     Router._instance.navigate(`/details/${word.key}`);
+                }
+            } else {
+                Router._instance.navigate(`/details/${word.key}`);
             }
         });
 

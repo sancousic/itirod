@@ -34,14 +34,19 @@ let WordOfDay = {
         let user = firebase.auth().currentUser;
         if(Router.currentPage == MainPage) {
             let card = document.getElementById('day-card');            
-            card.addEventListener('click', function(e) {    
-                let up_img = document.getElementById(`${word.key}-upvote-day`);       
-                let down_img = document.getElementById(`${word.key}-downvote-day`);  
-                let report = document.getElementById(`${word.key}-report-day`);       
-                if(user && (!up_img.contains(e.target)) 
-                    && (!down_img.contains(e.target))
-                     && (!report.contains(e.target))) {
+            card.addEventListener('click', function(e) {
+                if(user) { 
+                    let up_img = document.getElementById(`${word.key}-upvote-day`);       
+                    let down_img = document.getElementById(`${word.key}-downvote-day`);  
+                    let report = document.getElementById(`${word.key}-report-day`);  
+
+                    if((!up_img.contains(e.target)) && (!down_img.contains(e.target))
+                        && (!report.contains(e.target))) {
                         Router._instance.navigate(`/details/${word.key}`);
+                    }
+                }
+                else {
+                    Router._instance.navigate(`/details/${word.key}`);
                 }
             });
         }
