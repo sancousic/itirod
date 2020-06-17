@@ -97,7 +97,8 @@ p.word {
     p.date,
     p.def,
     p.comment,
-    p.rating {
+    p.rating,
+    div.links {
         font-size: 15px;
     }
     p.word {
@@ -131,7 +132,8 @@ p.word {
     p.date,
     p.def,
     p.comment,
-    p.rating {
+    p.rating,
+    div.links {
         font-size: 15px;
     }
     p.word {
