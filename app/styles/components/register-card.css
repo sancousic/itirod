@@ -1,0 +1,13 @@
+div.register-card {
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 300px;
+    max-height: 220px;
+    align-items: center;
+    background-color: var(--card-color);
+    padding-bottom: 10px;
+}

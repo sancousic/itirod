@@ -1,0 +1,37 @@
+@import url('../base/colors.css');
+
+input.create-input,
+textarea.create-textarea {
+    border: 1px solid gainsboro;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    border-radius: 5px;
+    padding: 6px;
+    margin: 10px 0;
+    width: 100%;
+    max-width: 100%;
+    outline: 0;
+}
+input.create-input:focus,
+textarea.create-textarea :focus {
+    background-color: #c6deec;
+}
+input.create-input {
+    max-width: 700px;
+    max-width: 100%;
+}
+textarea.create-textarea {
+    width: auto;
+    max-width: 100%;
+    width: 700px;
+    min-height: 20px;
+    max-height: 200px;
+    min-width: 200px;
+    max-width: 100%;
+}
+
+label.create-label {
+    font-size: 15px;
+    font-weight: bold;
+    align-self: flex-start;
+    max-width: 100%;
+}

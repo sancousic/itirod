@@ -1,0 +1,43 @@
+@import url('../base/colors.css');
+
+div.login-container {
+    display: flex;
+    flex-direction: column;
+}
+div.head {
+    display: flex;
+    justify-content: center;
+}
+div.row {
+    padding: 10px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+div.row a,
+div.row p {
+    font-size: 15px;
+}
+div.row buttaon {
+    outline: none;
+    background-color: transparent;
+    border: none;
+    transition-duration: 0.5s;
+    transition-property: color;
+}
+div.row a:hover {
+    color: red;
+}
+h1.login-h1 {
+    color: black;
+    margin-top: 5px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+@media (max-width: 768px)
+{
+    p.not-reg {
+        display: none;
+    }
+}

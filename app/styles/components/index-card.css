@@ -1,0 +1,147 @@
+a.index-card,
+a.index-card-day,
+div.index-card-day  {
+    border-radius: 25px;
+    background-color: var(--card-color);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    cursor: default;
+}
+div.index-row {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+}
+button.vote {
+    margin-left: 20px;
+    border: none;
+    outline: none;    
+    background-color: transparent;
+}
+button img.btn
+{
+    transition-duration: 0.5s;
+    transition-property: all;
+}
+img.btn:hover
+{
+    animation-duration: 1s;
+    animation-delay: 0.5s;
+    animation-timing-function: linear;
+    transform: rotateZ(15deg);
+    filter: invert(100%);
+}
+button img.red {
+    filter: invert(30%) sepia(100%) saturate(2000%)  hue-rotate(-15deg); 
+}
+button img.green {
+    filter: invert(30%) sepia(51%) saturate(3000%) hue-rotate(100deg);
+}
+div.rating {
+    min-height: 100%;    
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+div.report {
+    margin-left: auto;
+    margin-right: 20px;
+    display: flex;
+}
+button.report {
+    background-color: rgb(245, 127, 49);
+    border: none;
+    color: white;
+    padding: 3px;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.5s;
+    transition-property: all;
+    outline: none;
+}
+button.report:hover {
+    animation-duration: 1s;
+    animation-delay: 0.5s;
+    animation-timing-function: linear;
+    background-color: red;
+    color: white;
+}
+div.text p::first-letter
+{
+    text-transform: uppercase;
+}
+p.word {
+    font-weight: bold;
+}
+@media (max-width: 768px)
+{
+    button.sort {
+        font-size: 15px;
+        margin-left: 10px;
+    }
+    a.index-card,
+    a.index-card-day,
+    div.index-card-day  {
+        margin: 0px 5px 10px 5px;
+        padding: 10px;
+    }
+    button img.btn
+    {
+        width: 30px;
+        height:30px;
+    }
+    div.text {     
+        margin-bottom: 5px;
+    }
+    p.date,
+    p.def,
+    p.comment,
+    p.rating,
+    div.links {
+        font-size: 15px;
+    }
+    p.word {
+        font-size: 20px;
+    }
+}
+@media (min-width: 768px)
+{
+    div.sort { 
+        display: flex;
+        margin-left: 20px;
+        width: 0;
+    }
+    button.sort {
+        font-size: 14px;
+        margin-left: 20px;
+    }
+    a.index-card,
+    a.index-card-day,
+    div.index-card-day  {
+        margin: 0px 20px 10px 20px;
+        padding: 10px;
+    }
+    button img.btn
+    {
+        width: 30px;
+        height: 30px;
+    }
+    div.text {     
+        margin-bottom: 10px;
+    }
+    p.date,
+    p.def,
+    p.comment,
+    p.rating,
+    div.links {
+        font-size: 15px;
+    }
+    p.word {
+        font-size: 18px;
+    }
+}

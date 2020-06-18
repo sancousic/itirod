@@ -1,0 +1,14 @@
+@import url(./base/colors.css);
+@import url(./base/style.css);
+
+@import url(./components/create-card.css);
+@import url(./components/header.css);
+@import url(./components/index-card.css);
+@import url(./components/login-card.css);
+@import url(./components/report_card.css);
+@import url(./components/register-card.css);
+
+@import url(./pages/index.css);
+@import url(./pages/login.css);
+@import url(./pages/create.css);
+@import url(./pages/details.css);
