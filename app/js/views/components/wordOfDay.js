@@ -43,11 +43,11 @@ let WordOfDay = {
                         return;
                     }
                 }
-                let destination;
+                let destination = target.href;
                 let target = e.target;
                 while (!destination) {
-                    destination = target.href;
                     target = target.parentElement;
+                    destination = target.href;
                 }
                 if(user) { 
                     let up_img = document.getElementById(`${word.key}-upvote-day`);       
