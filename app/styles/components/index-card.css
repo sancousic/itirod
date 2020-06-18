@@ -5,6 +5,8 @@ div.index-card-day  {
     background-color: var(--card-color);
     display: flex;
     flex-direction: column;
+    text-decoration: none;
+    cursor: default;
 }
 div.index-row {
     display: flex;

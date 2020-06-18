@@ -36,11 +36,18 @@ let WordOfDay = {
         if(Router.currentPage == MainPage) {
             let card = document.getElementById('day-card');            
             card.addEventListener('click', function(e) {
+                e.preventDefault();
                 let sources = document.getElementsByClassName(`${word.key}-ref`);
                 for (let i = 0; i < sources.length; i++) {
                     if(sources[i].contains(e.target)) {
                         return;
                     }
+                }
+                let destination;
+                let target = e.target;
+                while (!destination) {
+                    destination = target.href;
+                    target = target.parentElement;
                 }
                 if(user) { 
                     let up_img = document.getElementById(`${word.key}-upvote-day`);       
@@ -49,11 +56,11 @@ let WordOfDay = {
 
                     if((!up_img.contains(e.target)) && (!down_img.contains(e.target))
                         && (!report.contains(e.target))) {
-                        Router._instance.navigate(`/details/${word.key}`);
+                        Router._instance.navigate(destination);
                     }
                 }
                 else {
-                    Router._instance.navigate(`/details/${word.key}`);
+                    Router._instance.navigate(destination);
                 }
             });
         }

@@ -52,6 +52,8 @@ let MainPage = {
 
         let word_of_day = await WordOfDay.getWordOfDay();        
         if(word_of_day) {
+            let day_card = document.getElementById('day-card');
+            day_card.href = `/details/${word_of_day.key}`
             let wordOfDayView = await WordOfDay.render(word_of_day);
             wordOfDayCard.insertAdjacentHTML('beforeend', wordOfDayView);
             WordOfDay.after_render(word_of_day);

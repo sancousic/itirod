@@ -7,7 +7,7 @@ import WordOfDay from "./wordOfDay.js";
 let FeedCard = {
     render: async (word) => {
         let view = /*HTML*/`
-                    <a class="index-card" id="${word.key}">
+                    <a href="/details/${word.key}" class="index-card" id="${word.key}">
                         <div class="text date">
                             <p class="text date">From ${word.creator} at ${GetFormatedDate(word.timestamp)}</p>
                         </div>
@@ -33,16 +33,23 @@ let FeedCard = {
         
         let card = document.getElementById(word.key);
         card.addEventListener('click', function(e) {   
+            e.preventDefault();
+            let destination;
+            let target = e.target;
+            while (!destination) {
+                destination = target.href;
+                target = target.parentElement;
+            }
             if(user) {
                 let up_img = document.getElementById(`${word.key}-upvote`);       
                 let down_img = document.getElementById(`${word.key}-downvote`);  
                 let report = document.getElementById(`${word.key}-report`);     
                 if ((!up_img.contains(e.target)) && (!down_img.contains(e.target))
                     && (!report.contains(e.target))) {
-                    Router._instance.navigate(`/details/${word.key}`);
+                    Router._instance.navigate(destination);
                 }
             } else {
-                Router._instance.navigate(`/details/${word.key}`);
+                Router._instance.navigate(destination);
             }
         });
 
