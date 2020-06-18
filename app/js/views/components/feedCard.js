@@ -34,12 +34,13 @@ let FeedCard = {
         let card = document.getElementById(word.key);
         card.addEventListener('click', function(e) {   
             e.preventDefault();
+            let target = e.target;
             let destination = target.href;
-                let target = e.target;
-                while (!destination) {
-                    target = target.parentElement;
-                    destination = target.href;
-                }
+
+            while (!destination) {
+                target = target.parentElement;
+                destination = target.href;
+            }
             if(user) {
                 let up_img = document.getElementById(`${word.key}-upvote`);       
                 let down_img = document.getElementById(`${word.key}-downvote`);  

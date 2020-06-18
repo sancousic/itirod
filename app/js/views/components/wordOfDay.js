@@ -43,8 +43,8 @@ let WordOfDay = {
                         return;
                     }
                 }
-                let destination = target.href;
                 let target = e.target;
+                let destination = target.href;
                 while (!destination) {
                     target = target.parentElement;
                     destination = target.href;
