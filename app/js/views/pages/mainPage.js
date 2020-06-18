@@ -19,8 +19,8 @@ let MainPage = {
                                     <h1 class="standart">Word of day</h1>
                                 </div>                         
                             </div>
-                            <div class="index-card-day" id="day-card">                                
-                            </div>                        
+                            <a class="index-card-day" id="day-card">                                
+                            </a>                        
                         </div>                
                     </section>                    
                     <section id="feed-section">

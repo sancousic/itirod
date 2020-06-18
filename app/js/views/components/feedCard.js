@@ -7,7 +7,7 @@ import WordOfDay from "./wordOfDay.js";
 let FeedCard = {
     render: async (word) => {
         let view = /*HTML*/`
-                    <div class="index-card" id="${word.key}">
+                    <a class="index-card" id="${word.key}">
                         <div class="text date">
                             <p class="text date">From ${word.creator} at ${GetFormatedDate(word.timestamp)}</p>
                         </div>
@@ -22,7 +22,7 @@ let FeedCard = {
                                 <p class="rating" id="${word.key}-rating">${word.rating}</p>
                             </div>
                         </div>
-                    </div>     
+                    </a>     
                     `
         return view;
     },
